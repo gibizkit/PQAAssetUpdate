@@ -41,16 +41,23 @@
       <button class="btn" onclick="openMobile()"><span class="ico">📱</span> เปิดด้วยมือถือ</button>
     </div>
     <div class="fallback">
-      หากปุ่มไม่ทำงาน <a href="https://script.google.com/macros/s/AKfycbxMoTegLGN_hRTONKl-TbbzBM2wXP97w8NWnih2qDuDfu2kIfCNvMfO7LNK4MZIj-77/exec">คลิกที่นี่</a>
+      หากปุ่มไม่ทำงาน <a id="fallbackLink" href="#">คลิกที่นี่</a>
     </div>
   </div>
 
   <iframe id="appFrame" src="about:blank">
-    เบราว์เซอร์ของคุณไม่รองรับการใช้งาน กรุณาเข้าสู่ระบบโดยตรงที่ <a href="https://script.google.com/macros/s/AKfycbxMoTegLGN_hRTONKl-TbbzBM2wXP97w8NWnih2qDuDfu2kIfCNvMfO7LNK4MZIj-77/exec">คลิกที่นี่</a>
+    เบราว์เซอร์ของคุณไม่รองรับการใช้งาน กรุณาเข้าสู่ระบบโดยตรงที่ <a id="noFrameLink" href="#">คลิกที่นี่</a>
   </iframe>
 
 <script>
+  // ================================================================
+  // แก้ URL ของ Google App Script ที่บรรทัดเดียวนี้จุดเดียวพอ
+  // ================================================================
   var GAS_URL = "https://script.google.com/macros/s/AKfycbxMoTegLGN_hRTONKl-TbbzBM2wXP97w8NWnih2qDuDfu2kIfCNvMfO7LNK4MZIj-77/exec";
+  // ================================================================
+
+  document.getElementById('fallbackLink').href = GAS_URL;
+  document.getElementById('noFrameLink').href = GAS_URL;
 
   function openIframe() {
     var frame = document.getElementById('appFrame');
